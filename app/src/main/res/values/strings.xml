@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name">AgroMovil</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="logout">Salir</string>
+
+    <!--drawer options -->
+    <string name="drawer_item_1">Nueva Inspección</string>
+    <string name="drawer_item_2">Inspecciones Recientes</string>
+    <string name="drawer_item_3">Sincronizar</string>
+    <string name="drawer_item_3_menu_item_1">Enviar Data</string>
+
+    <string name="title_basics_activity">Datos Básicos</string>
+    <string name="main_fragment_welcome">Hola Usuario</string>
+    <string name="title_test_activity">Nueva Evaluación</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="textview">TextView</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="todo">TODO</string>
+
+    <string name="update_status">Actualizacion Encontrada...</string>
+    <string name="update_porcent">0%</string>
+    <string name="title_activity_new_inspection">Nueva Inspección</string>
+
+    <string name="default_qr_text">Porfavor enfoque el código QR</string>
+
+
+    <string name="btn_capture">Enfocar</string>
+
+    <!-- Toast Messages -->
+    <string name="camera_not_found">Camara no encontrada</string>
+    <string name="take_photo_help">Toca en cualquier parte de la pantalla para tomar una foto</string>
+    <string name="title_activity_recomendaciones">Recomendaciones</string>
+    <string name="title_activity_photo_gallery">PhotoGallery</string>
+    <string name="drawer_item_4_menu_item_1">Actualizar Data</string>
+    <string name="title_activity_xd">xd</string>
+
+
+    <!--lenguaje del usuario -->
+    <string name="empresa">Productor</string>
+    <string name="fundo">Fundo</string>
+    <string name="cultivo">Cultivo</string>
+    <string name="variedad">Variedad</string>
+    <string name="contacto">Contacto</string>
+    <string name="zona">Zona</string>
+
+    <string name="cabezeraSpnContacto">Seleccione Contacto</string>
+    <string name="cabezeraSpnEmpresa">Seleccione Productor</string>
+    <string name="cabezeraSpnZona">Seleccione Zona</string>
+    <string name="cabezeraSpnFundo">Seleccione Fundo</string>
+    <string name="cabezeraSpnCultivo">Seleccione Cultivo</string>
+    <string name="cabezeraSpnVariedad">Seleccione Variedad</string>
+
+
+
+</resources>

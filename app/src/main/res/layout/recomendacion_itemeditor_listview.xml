@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:background="#efeded"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tViewNameCriterioRecomendacion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="Fumigacion con Azufre"
+            android:textSize="20dp"
+            android:textColor="@color/primaryDark"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="MissingConstraints" />
+
+
+    <EditText
+        android:id="@+id/rec_eTextCantidad"
+        android:layout_width="130dp"
+        android:layout_height="40sp"
+
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Cantidad"
+        android:inputType="numberDecimal"
+        android:nextFocusDown="@+id/til_tiporeco"
+        android:singleLine="true"
+        app:layout_constraintStart_toStartOf="@+id/tViewNameCriterioRecomendacion"
+        app:layout_constraintTop_toBottomOf="@+id/tViewNameCriterioRecomendacion" />
+
+
+    <RelativeLayout
+            android:id="@+id/relativeSpnFrecuencia"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="24dp"
+            android:background="@drawable/shape_secondary_r15"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+            <Spinner
+                android:id="@+id/rec_spnFrecuencia"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:spinnerMode="dialog"
+                android:layout_height="wrap_content"
+                android:entries="@array/empresas" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Unidades"
+            app:layout_constraintBottom_toTopOf="@+id/spinner2"
+            app:layout_constraintStart_toStartOf="@+id/spinner2" />
+
+    <RelativeLayout
+        android:id="@+id/spinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="32dp"
+        android:background="@drawable/shape_secondary_r15"
+        app:layout_constraintBottom_toBottomOf="@+id/rec_eTextCantidad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/rec_eTextCantidad">
+
+
+        <Spinner
+            android:id="@+id/rec_spnUnidades"
+            android:layout_width="match_parent"
+            android:spinnerMode="dialog"
+            android:layout_height="wrap_content"
+            android:entries="@array/empresas" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Frecuencia"
+        app:layout_constraintStart_toStartOf="@+id/rec_eTextCantidad"
+        app:layout_constraintTop_toBottomOf="@+id/rec_eTextCantidad" />
+
+        <ImageView
+            android:id="@+id/rec_iViewBtnDelete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_delete_forever_black_24dp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tViewNameCriterioRecomendacion"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tViewNameCriterioRecomendacion" />
+
+    <EditText
+        android:id="@+id/reco"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_secondary_r15_asd"
+
+        android:hint="Comentarios"
+        android:inputType="none"
+        android:maxLines="1"
+        android:padding="10sp"
+        android:singleLine="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/relativeSpnFrecuencia" />
+
+
+
+</android.support.constraint.ConstraintLayout>
+

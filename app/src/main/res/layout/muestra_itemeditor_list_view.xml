@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_criterio_item_deddd"
+    android:layout_width="match_parent"
+    android:background="#f1f1f1"
+    android:layout_marginVertical="5dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/name_criterio"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="NameCriterio"
+        android:textColor="@color/primary_text"
+        android:textSize="14sp"
+        app:layout_constraintStart_toEndOf="@+id/muestra_delete"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/_int"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_secondary_r15_borderlight_v2"
+        android:ems="10"
+        android:inputType="numberSigned"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cam"
+        app:layout_constraintTop_toTopOf="@+id/btn_cam" />
+
+    <EditText
+        android:id="@+id/_float"
+
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_secondary_r15_borderlight_v2"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cam"
+        app:layout_constraintTop_toTopOf="@+id/btn_cam" />
+
+    <EditText
+        android:id="@+id/_string"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_secondary_r15_borderlight_v2"
+        android:ems="10"
+        android:inputType="text"
+        android:padding="5dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tViewHoraMuestra" />
+
+    <Spinner
+        android:id="@+id/_list"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+
+        android:background="@drawable/shape_secondary_r15_borderlight_v2"
+        android:textAlignment="center"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_cam"
+        app:layout_constraintTop_toTopOf="@+id/btn_cam" />
+
+
+    <Switch
+        android:id="@+id/_boolean"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:scaleX="1.5"
+        android:scaleY="1.2"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cam"
+        app:layout_constraintEnd_toEndOf="@+id/_list"
+        app:layout_constraintStart_toStartOf="@+id/_list"
+        app:layout_constraintTop_toTopOf="@+id/btn_cam" />
+
+    <ImageView
+        android:id="@+id/btn_cam"
+        android:layout_width="24dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_menu_camera"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="@+id/tViewHoraMuestra"
+        app:layout_constraintStart_toEndOf="@+id/name_criterio"
+        app:layout_constraintTop_toTopOf="@+id/name_criterio"
+        app:layout_constraintVertical_bias="0.6" />
+
+    <ImageView
+        android:id="@+id/muestra_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/ic_delete_forever_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/name_criterio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/name_criterio" />
+
+    <TextView
+        android:id="@+id/tViewHoraMuestra"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="10sp"
+        app:layout_constraintStart_toStartOf="@+id/name_criterio"
+        app:layout_constraintTop_toBottomOf="@+id/name_criterio"
+        tools:text="16/34/2424" />
+
+    <EditText
+        android:id="@+id/eTextComentario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:singleLine="true"
+        android:background="@drawable/shape_secondary_r15_asd"
+        android:ems="10"
+        android:hint="Comentarios"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+
+        android:padding="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/_string" />
+
+    <TextView
+        android:id="@+id/tViewNumFotos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9+"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_cam"
+        app:layout_constraintEnd_toStartOf="@+id/btn_cam"
+        app:layout_constraintTop_toTopOf="@+id/btn_cam" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <Button
+        android:id="@+id/button_ok"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_button_bot_blue"
+        android:text="Listo"
+        android:textAllCaps="false"
+        android:textColor="@color/divider"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="pressListo"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_secondary_r15_v2"
+        android:paddingBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+
+            android:background="@drawable/shape_secondary_r15_borderlight_v2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tViewEmpesa"
+            app:layout_constraintTop_toBottomOf="@+id/tViewZona">
+
+            <Spinner
+                android:id="@+id/spnZona"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/zonas"
+                android:minWidth="15dp"
+                android:paddingVertical="5dp"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/shape_secondary_r15_borderlight_v2"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout6"
+            app:layout_constraintStart_toStartOf="@+id/textView33"
+            app:layout_constraintTop_toBottomOf="@+id/textView33">
+
+            <Spinner
+                android:id="@+id/spnCultivo"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/cultivos"
+                android:minWidth="15dp"
+                android:paddingVertical="5dp"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/shape_secondary_r15_borderlight_v2"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout5"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
+            app:layout_constraintTop_toBottomOf="@+id/textView34">
+
+            <Spinner
+                android:id="@+id/spnVariedad"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/variedades"
+                android:minWidth="15dp"
+                android:paddingVertical="5dp"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/shape_secondary_r15_borderlight_v2"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout4"
+            app:layout_constraintStart_toStartOf="@+id/textView35"
+            app:layout_constraintTop_toBottomOf="@+id/textView35">
+
+            <Spinner
+                android:id="@+id/spnContacto"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/contactos"
+
+                android:paddingVertical="5dp"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/eTextContacto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_secondary_r15_borderlight_v2"
+                android:hint="Escriba aqui el contacto"
+                android:inputType="text"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:paddingVertical="5dp"
+                android:singleLine="true"
+                android:spinnerMode="dialog"
+                android:text=""
+                android:textAlignment="textStart"
+                android:textSize="16dp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tViewEmpesa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/empresa"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout20" />
+
+        <TextView
+            android:id="@+id/tViewZona"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="@string/zona"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tViewFundo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/fundo"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tViewEmpesa"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout9" />
+
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/cultivo"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tViewEmpesa"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout6" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/variedad"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textView33"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout5" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/contacto"
+            android:textColor="@color/primary"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/textView34"
+            app:layout_constraintTop_toBottomOf="@+id/relativeLayout4" />
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personalizar"
+            android:textColor="@color/secondary_text"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:textScaleX="1"
+            android:translationY="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView35"
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout4"
+            app:layout_constraintTop_toTopOf="@+id/textView35" />
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/shape_secondary_r15_borderlight_v2"
+
+            app:layout_constraintEnd_toEndOf="@+id/relativeLayout9"
+            app:layout_constraintStart_toStartOf="@+id/tViewFundo"
+            app:layout_constraintTop_toBottomOf="@+id/tViewFundo">
+
+            <Spinner
+                android:id="@+id/spnFundo"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dropDownWidth="match_parent"
+                android:entries="@array/fundos"
+                android:minWidth="15dp"
+                android:paddingVertical="5dp"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="8dp"
+
+            android:background="@drawable/shape_secondary_r15_borderlight_v2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tViewEmpesa"
+            app:layout_constraintTop_toBottomOf="@+id/tViewEmpesa">
+
+            <Spinner
+                android:id="@+id/spnEmpresa"
+                style="@style/Widget.AppCompat.DropDownItem.Spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:dropDownWidth="match_parent"
+                android:entries="@array/empresas"
+                android:minWidth="15dp"
+                android:paddingVertical="5dp"
+                android:spinnerMode="dialog"
+                android:textAlignment="textStart"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </RelativeLayout>
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="empresas">
+        <item>@string/cabezeraSpnEmpresa</item>
+        <item>AgroValle</item>
+        <item>AgroPeru</item>
+    </string-array>
+    <string-array name="zonas">
+        <item>@string/cabezeraSpnZona</item>
+        <item>AgroValle</item>
+        <item>AgroPeru</item>
+    </string-array>
+
+    <string-array name="fundos">
+        <item>@string/cabezeraSpnFundo</item>
+        <item>Fundo Santo Domingo</item>
+        <item>Fundo San Juan</item>
+        <item>Fundo Santa Clara</item>
+        <item>Fundo Santa Isabel</item>
+    </string-array>
+
+    <string-array name="cultivos">
+        <item>@string/cabezeraSpnCultivo</item>
+        <item>Palto</item>
+        <item>Mandarina</item>
+        <item>Papaya</item>
+    </string-array>
+
+    <string-array name="variedades">
+        <item>@string/cabezeraSpnVariedad</item>
+        <item>W. Murcott 123.00 Ha.</item>
+        <item>Biloxi 145.00 Ha.</item>
+    </string-array>
+
+    <string-array name="contactos">
+        <item>@string/cabezeraSpnContacto</item>
+        <item>W. Murcott 123.00 Ha.</item>
+        <item>Biloxi 145.00 Ha.</item>
+    </string-array>
+
+    <string-array name="inspecciones">
+        <item>Fitosanidad Entomológicos</item>
+        <item>Fitosanidad Fitopatológicos</item>
+    </string-array>
+</resources>

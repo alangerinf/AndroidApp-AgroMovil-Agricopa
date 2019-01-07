@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/icons"
+    tools:context=".views.ActivityRecomendacion">
+
+
+
+    <TextView
+        android:id="@+id/tViewTipoRecomendacion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Nombre de Tipo de Recomendación"
+        android:textColor="@color/primary"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:background="@color/accent"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tViewTipoRecomendacion"
+        tools:ignore="MissingConstraints" />
+
+
+
+    <ListView
+        android:id="@+id/listRecomedacion"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:background="#fff"
+        android:divider="@color/icons"
+        android:dividerHeight="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/buton_ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/buton_ok"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:onClick="end"
+        android:background="@drawable/shape_button_bot_gren"
+        android:text="LISTO"
+        android:textColor="@color/divider"
+        android:textSize="24sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fButton_ReturnVisita"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:clickable="true"
+        android:onClick="showListCriterioRecomendacion"
+        android:src="@drawable/ic_add_black_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/buton_ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/primary" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fButton_listRecomendaiciones"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/primary"
+        android:clickable="true"
+        android:src="@drawable/ic_comment_white"
+        android:onClick="showListTipoRecomendacion"
+        app:layout_constraintBottom_toTopOf="@+id/fButton_ReturnVisita"
+        app:layout_constraintEnd_toEndOf="@+id/fButton_ReturnVisita"
+        app:rippleColor="@color/accent" />
+
+</android.support.constraint.ConstraintLayout>
