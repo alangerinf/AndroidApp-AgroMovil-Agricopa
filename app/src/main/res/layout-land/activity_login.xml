@@ -18,10 +18,10 @@
         android:layout_height="703dp"
         android:adjustViewBounds="true"
         android:cropToPadding="true"
-        android:scaleType="center"
+        android:scaleType="matrix"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/background2_desenfocado" />
+        android:src="@drawable/background" />
 
 
     <android.support.constraint.ConstraintLayout
