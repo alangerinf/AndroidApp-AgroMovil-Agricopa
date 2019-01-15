@@ -6,8 +6,8 @@ android {
         applicationId "pe.ibao.agromovilagricopa"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 4
-        versionName "1.0b"
+        versionCode 5
+        versionName "1.0c"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

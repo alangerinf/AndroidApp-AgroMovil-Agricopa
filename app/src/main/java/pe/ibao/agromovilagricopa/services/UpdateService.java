@@ -8,11 +8,13 @@ import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.text.PrecomputedText;
 import android.util.Log;
@@ -72,6 +74,11 @@ public class UpdateService extends IntentService {
             ac.execute();
         }
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+            startMyOwnForeground();
+        else
+            startForeground(1, new Notification());
+/*
         String ANDROID_CHANNEL_ID="199232";
         int NOTIFICATION_ID=199232;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -90,8 +97,30 @@ public class UpdateService extends IntentService {
             Notification notification = builder.build();
             startForeground(NOTIFICATION_ID, notification);
         }
+  */
         reiniciarDownloaders();
         r.run();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void startMyOwnForeground(){
+        String NOTIFICATION_CHANNEL_ID = getPackageName();
+        String channelName = "Servicio de actualización";
+        NotificationChannel chan = new NotificationChannel(NOTIFICATION_CHANNEL_ID, channelName, NotificationManager.IMPORTANCE_NONE);
+        chan.setLightColor(Color.BLUE);
+        chan.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+        NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        assert manager != null;
+        manager.createNotificationChannel(chan);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, NOTIFICATION_CHANNEL_ID);
+        Notification notification = notificationBuilder.setOngoing(true)
+                .setSmallIcon(R.drawable.ic_sync_black_24dp)
+                .setContentTitle("Actualizando Data")
+                .setPriority(NotificationManager.IMPORTANCE_MIN)
+                .setCategory(Notification.CATEGORY_SERVICE)
+                .build();
+        startForeground(2, notification);
     }
 
     private void publishResults(int result, String mensaje, int porcent) {

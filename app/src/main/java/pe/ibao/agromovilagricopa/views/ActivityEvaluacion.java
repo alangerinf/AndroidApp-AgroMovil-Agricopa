@@ -272,8 +272,7 @@ public class ActivityEvaluacion extends AppCompatActivity {
     }
     @Override
     public void onBackPressed() {
-
-        if(new EvaluacionDAO(getBaseContext()).consultarById(idEvaluacion).getIdTipoInspeccion()==0){
+        if(saveMuestras.size()==0){
             new EvaluacionDAO(getBaseContext()).borrarById(idEvaluacion);
         }
 

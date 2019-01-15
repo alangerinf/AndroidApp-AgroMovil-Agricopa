@@ -54,6 +54,7 @@ import pe.ibao.agromovilagricopa.models.vo.entitiesDB.TipoRecomendacionVO;
 import pe.ibao.agromovilagricopa.models.vo.entitiesInternal.EvaluacionVO;
 import pe.ibao.agromovilagricopa.models.vo.entitiesInternal.VisitaVO;
 
+
 public class ActivityVisita extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener
@@ -114,7 +115,7 @@ public class ActivityVisita extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         xx= savedInstanceState;
         setContentView(R.layout.activity_new_visita);
-       // setupActionBar();
+        // setupActionBar();
         ctx=this;
 
         Intent i = getIntent();
@@ -143,7 +144,7 @@ public class ActivityVisita extends AppCompatActivity implements
         if(!isEditable){
             btnFinalizar.setVisibility(View.INVISIBLE);
             floatBtnNuevo.setVisibility(View.INVISIBLE);
-            ((FloatingActionButton) findViewById(R.id.floatingActionButton)).setTranslationY(120);
+          //  ((FloatingActionButton) findViewById(R.id.floatingActionButton)).setTranslationY(120);
             setTitle("Datos Inspección");
         }
 
@@ -192,13 +193,13 @@ public class ActivityVisita extends AppCompatActivity implements
                         Intent intent = new Intent(getBaseContext(),ActivityEvaluacion.class);
                         Bundle mybundle = new Bundle();
                         //visita = new VisitaDAO(ctx).getEditing();
-                            mybundle.putInt("idEvaluacion",evtemp.getId());
-                            mybundle.putInt("idTipoInspeccion",evtemp.getIdTipoInspeccion());
-                            mybundle.putInt("idVariedad",visita.getIdVariedad());
-                            mybundle.putInt("idFundo",visita.getIdFundo());
-                            mybundle.putInt("isNewTest",0);
-                            mybundle.putString("fechaHora",evtemp.getTimeIni());
-                            mybundle.putBoolean("isEditable",isEditable);
+                        mybundle.putInt("idEvaluacion",evtemp.getId());
+                        mybundle.putInt("idTipoInspeccion",evtemp.getIdTipoInspeccion());
+                        mybundle.putInt("idVariedad",visita.getIdVariedad());
+                        mybundle.putInt("idFundo",visita.getIdFundo());
+                        mybundle.putInt("isNewTest",0);
+                        mybundle.putString("fechaHora",evtemp.getTimeIni());
+                        mybundle.putBoolean("isEditable",isEditable);
                         intent.putExtras(mybundle);
                         ActivityEvaluacion.setLastItemSelected(0);
                         startActivityForResult(intent,REQUEST_EDIT_EVALUATION);
@@ -215,7 +216,7 @@ public class ActivityVisita extends AppCompatActivity implements
                         //tomarFoto();
                         //Toast.makeText(this,"Borrando"+position,Toast.LENGTH_LONG).show();
                         try{
-                           // Toast.makeText(getBaseContext(),"borrando->"+position,Toast.LENGTH_LONG).show();
+                            // Toast.makeText(getBaseContext(),"borrando->"+position,Toast.LENGTH_LONG).show();
 
                             dialogClose.setContentView(R.layout.dialog_danger);
                             Button btnDialogClose = (Button) dialogClose.findViewById(R.id.buton_close);
@@ -332,9 +333,8 @@ public class ActivityVisita extends AppCompatActivity implements
                 tViewContacto.setText(contactoDAO.consultarContactoByid(visita.getIdContacto()).getName());
             }
         }else{
-                tViewContacto.setText(visita.getContactoPersonalizado());
+            tViewContacto.setText(visita.getContactoPersonalizado());
         }
-
 
         if(visita.getFechaHoraIni()!=null){
             tViewHora.setText(visita.getFechaHoraIni());
@@ -389,6 +389,7 @@ public class ActivityVisita extends AppCompatActivity implements
 
                 Log.e(TAG, "Permiso denegado");
             }
+            mGoogleApiClient.connect();
         }
     }
 
@@ -397,8 +398,8 @@ public class ActivityVisita extends AppCompatActivity implements
         Intent intent = new Intent(this,ActivityEvaluacion.class);
 
         /**falta insertar primero en ta tabla  evaluaciones
-        con el id de la visita
-        **/
+         con el id de la visita
+         **/
 
         if(visita.getIdFundo()>0 && visita.getIdVariedad()>0){
             EvaluacionVO evtemp =  new EvaluacionDAO(ctx).nuevoByIdVisita(-8045.56,262.9,visita.getId());
@@ -463,7 +464,8 @@ public class ActivityVisita extends AppCompatActivity implements
         // Check which request we're responding to
 
         //Toast.makeText(this,"onactivity resytk",Toast.LENGTH_LONG).show();
-       // visita = new VisitaDAO(ctx).getEditing();
+        // visita = new VisitaDAO(ctx).getEditing();
+        mGoogleApiClient.connect();
         switch (requestCode){
             case REQUEST_BASICS_DATA :
                 // Make sure the request was successful
@@ -483,7 +485,7 @@ public class ActivityVisita extends AppCompatActivity implements
                     Toast.makeText(ctx,"Edición no Guardada",Toast.LENGTH_LONG).show();
                 }
 
-            break;
+                break;
             case REQUEST_EDIT_EVALUATION :
                 evaluacionVOList = new EvaluacionDAO(this)
                         .listarByIdVisita(
@@ -541,11 +543,7 @@ public class ActivityVisita extends AppCompatActivity implements
         }
     }
 
-
-
-
     public void showListTipoRecomendacion(View view){
-
         if(visita.getIdFundo()>0 && visita.getIdVariedad()>0){
             //if(isEditable){
             listTipoRecomendaciones = new TipoRecomendacionDAO(getBaseContext()).listarByIdFundoIdVariedad(visita.getIdFundo(),visita.getIdVariedad());
@@ -577,17 +575,13 @@ public class ActivityVisita extends AppCompatActivity implements
                             i.putExtra("isEditable",isEditable);
                             startActivityForResult(i, REQUEST_RECOMENDACION);//cambie  aqui de 1
                             overridePendingTransition(R.anim.bot_in, R.anim.fade_out);
-
-
                         }
                     });
             dialogo.show();
             //}
         }else{
-                Toast.makeText(ctx,"Primero configura tus Datos Basicos",Toast.LENGTH_LONG).show();
+            Toast.makeText(ctx,"Primero configura tus Datos Basicos",Toast.LENGTH_LONG).show();
         }
-
-
     }
 
     public void end(View view){
@@ -664,7 +658,39 @@ public class ActivityVisita extends AppCompatActivity implements
         dialogClose.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialogClose.show();
     }
+    public void showComent(View view) {
+        final String coment = new VisitaDAO(getBaseContext()).buscarById((long) visita.getId()).getComentario();
+        dialogClose.setContentView(R.layout.dialog_coment);
+        btnDialogClose = (Button) dialogClose.findViewById(R.id.buton_ok);
+        final EditText eTextcoment = (EditText) dialogClose.findViewById(R.id.eTextComent);
+        iViewDialogClose = (ImageView) dialogClose.findViewById(R.id.iViewDialogClose);
+        eTextcoment.setText(coment);
+        if (!isEditable) {
+            eTextcoment.setClickable(false);
+            eTextcoment.setFocusable(false);
+        }
+        iViewDialogClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogClose.dismiss();
+            }
+        });
+        btnDialogClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isEditable) {
+                    new VisitaDAO(getBaseContext()).setComentario(visita.getId(), eTextcoment.getText().toString());
+                }
+                dialogClose.dismiss();
 
+            }
+        });
+
+        dialogClose.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialogClose.show();
+
+
+    }
 
     @Override
     public void onConnected(Bundle bundle) {
@@ -694,38 +720,6 @@ public class ActivityVisita extends AppCompatActivity implements
 
     }
 
-    public void showComent(View view){
-        final String coment = new VisitaDAO(getBaseContext()).buscarById((long)visita.getId()).getComentario();
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Comentario");
-
-        // Set up the input
-        final EditText input = new EditText(this);
-        input.setText(coment);
-
-        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT );
-        builder.setView(input);
-
-
-// Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if(isEditable){
-                    new VisitaDAO(getBaseContext()).setComentario(visita.getId(),input.getText().toString());
-                }
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        builder.show();
-    }
 
     @Override
     public void onConnectionSuspended(int i) {

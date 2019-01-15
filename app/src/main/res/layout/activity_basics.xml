@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="@drawable/shape_button_bot_blue"
-        android:text="Listo"
+        android:text="LISTO"
         android:textAllCaps="false"
         android:textColor="@color/divider"
         android:textSize="24sp"
