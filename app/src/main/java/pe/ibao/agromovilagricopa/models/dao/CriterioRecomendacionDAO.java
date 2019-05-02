@@ -127,7 +127,7 @@ public class CriterioRecomendacionDAO {
                     "FV."+TABLE_FUNDOVARIEDAD_COL_IDVARIEDAD+"="+String.valueOf(idVariedad)+
                     " ORDER BY "+
                     "CR."+TABLE_CRITERIORECOMENDACION_COL_NAME+
-                    " COLLATE UNICODE ASC";
+                    " COLLATE UNICODE ASC ";
             Cursor cursor = db.rawQuery(consulta
                     ,null);
             Log.d("consultalsitaCR",consulta);

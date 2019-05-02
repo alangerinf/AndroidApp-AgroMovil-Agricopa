@@ -100,7 +100,6 @@ public class ActivityVisita extends AppCompatActivity implements
     private static List<TipoRecomendacionVO> listTipoRecomendaciones;
 
 
-
     static Button btnFinalizar;
     static FloatingActionButton floatBtnNuevo;
 
@@ -223,7 +222,7 @@ public class ActivityVisita extends AppCompatActivity implements
                             Button btnDialogAcept = (Button) dialogClose.findViewById(R.id.buton_acept);
                             iViewDialogClose = (ImageView) dialogClose.findViewById(R.id.iViewDialogClose);
                             TextView mensaje = (TextView) dialogClose.findViewById(R.id.textView11);
-                            mensaje.setText("Esta a punto de eliminar una evaluación\n¿DESEA CONTINUAR?");
+                            mensaje.setText("Esta a punto de eliminar una muestra\n¿DESEA CONTINUAR?");
                             iViewDialogClose.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -339,6 +338,7 @@ public class ActivityVisita extends AppCompatActivity implements
         if(visita.getFechaHoraIni()!=null){
             tViewHora.setText(visita.getFechaHoraIni());
         }
+
 
         listViewEvaluaciones.setAdapter(baseAdapter);
         setListViewHeightBasedOnChildren(listViewEvaluaciones);

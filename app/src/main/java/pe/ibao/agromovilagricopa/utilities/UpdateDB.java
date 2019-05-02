@@ -36,6 +36,11 @@ import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_CONFIGURACIONR
 import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_EVALUACION;
 import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_FUNDOVARIEDAD;
 
+
+
+
+
+
 public class UpdateDB {
 
     private Context ctx;
@@ -72,11 +77,7 @@ public class UpdateDB {
         DownloaderCriterioRecomendacion cre = new DownloaderCriterioRecomendacion(ctx);
         cre.download(porcentaje,mensaje,91,10);
 
-
     }
-
-
-
 
 
     public UpdateDB(Context ctx) {
@@ -121,7 +122,7 @@ public class UpdateDB {
     }
 
 
-
+/*
 
     public void cargarContactos(){
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(ctx, Utilities.DATABASE_NAME,null,VERSION_DB );
@@ -483,7 +484,7 @@ public class UpdateDB {
         Long temp = db.insert(Utilities.TABLE_MUESTRA,Utilities.TABLE_MUESTRA_COL_ID,values);
         db.close();
     }
-/*
+
     public void cargarTipoRecomendaciones(){
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(ctx, Utilities.DATABASE_NAME,null,VERSION_DB );
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -499,7 +500,7 @@ public class UpdateDB {
 
         db.close();
     }
-*/
+
     public void cargarCriterioRecomendaciones(){
         ConexionSQLiteHelper conn=new ConexionSQLiteHelper(ctx, Utilities.DATABASE_NAME,null,VERSION_DB );
         SQLiteDatabase db = conn.getWritableDatabase();
@@ -554,5 +555,5 @@ public class UpdateDB {
 
         db.close();
     }
-
+*/
 }

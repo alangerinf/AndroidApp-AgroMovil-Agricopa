@@ -3,7 +3,7 @@ package pe.ibao.agromovilagricopa.utilities;
 
 public class Utilities {
 
-    public static final String URL_ROOT="http://apps.ibao.pe/agromovil/agricopa/requests/";
+    public static final String URL_ROOT="http://35.167.15.182/agromovil/agricopa/requests/";
     public static final String URL_AUTENTIFICATION=URL_ROOT+"autenticar.php";
     public static final String URL_DOWNLOAD_TABLE_EMPRESA=URL_ROOT+"getEnterprises.php";
     public static final String URL_DOWNLOAD_TABLE_FUNDO=URL_ROOT+"getFundos.php";
@@ -85,11 +85,11 @@ public class Utilities {
 
     public static final String TABLE_VARIEDAD="variedad",
             TABLE_VARIEDAD_COL_ID               ="id",
-            TABLE_VARIEDAD_TYPECOL_ID           ="id",
+            TABLE_VARIEDAD_TYPECOL_ID           ="INTEGER",
             TABLE_VARIEDAD_COL_NAME             ="name",
-            TABLE_VARIEDAD_TYPECOL_NAME         ="name",
+            TABLE_VARIEDAD_TYPECOL_NAME         ="VARCHAR(50)",
             TABLE_VARIEDAD_COL_IDCULTIVO        ="idCultivo",
-            TABLE_VARIEDAD_TYPECOL_IDCULTIVO    ="idCultivo";
+            TABLE_VARIEDAD_TYPECOL_IDCULTIVO    ="INTEGER";
 
 
     public static final String TABLE_FUNDOVARIEDAD="fundoVariedad",
@@ -251,9 +251,9 @@ public class Utilities {
 
     public static final String CREATE_TABLE_ZONA =
             " CREATE TABLE IF NOT EXISTS "+TABLE_ZONA+" ("+
-                TABLE_ZONA_COL_ID   +" "+TABLE_ZONA_TYPECOL_ID+" PRIMARY KEY ,"+
-                TABLE_ZONA_COL_NAME +" "+TABLE_ZONA_TYPECOL_NAME+" "+
-            ")";
+                    TABLE_ZONA_COL_ID   +" "+TABLE_ZONA_TYPECOL_ID+" PRIMARY KEY ,"+
+                    TABLE_ZONA_COL_NAME +" "+TABLE_ZONA_TYPECOL_NAME+" "+
+                    ")";
 
     public static final String CREATE_TABLE_FOTO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_FOTO+" ("+
@@ -261,7 +261,7 @@ public class Utilities {
                     TABLE_FOTO_COL_PATH +" "+ TABLE_FOTO_TYPECOL_PATH +", "+
                     TABLE_FOTO_COL_HORAFECHA+" "+TABLE_FOTO_TYPECOL_HORAFECHA+" DEFAULT (datetime('now','localtime')), "+
                     TABLE_FOTO_COL_IDMUESTRA+" "+TABLE_FOTO_TYPECOL_IDMUESTRA+" NOT NULL"+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_MUESTRA =
             " CREATE TABLE IF NOT EXISTS "+TABLE_MUESTRA+" ("+
@@ -272,7 +272,7 @@ public class Utilities {
                     TABLE_MUESTRA_COL_IDCRITERIO      +" "+TABLE_MUESTRA_TYPECOL_IDCRITERIO   +" NOT NULL, "+
                     TABLE_MUESTRA_COL_IDEVALUACION    +" "+TABLE_MUESTRA_TYPECOL_IDEVALUACION +" NOT NULL,"+
                     TABLE_MUESTRA_COL_IDTIPOINSPECCION+" "+TABLE_MUESTRA_TYPECOL_IDTIPOINSPECCION+" NOT NULL"+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_EVALUACION=
             " CREATE TABLE IF NOT EXISTS "+TABLE_EVALUACION+" ("+
@@ -284,7 +284,7 @@ public class Utilities {
                     TABLE_EVALUACION_COL_LONGITUD           +" "+TABLE_EVALUACION_TYPECOL_LONGITUD      +", "+
                     TABLE_EVALUACION_COL_IDTIPOINSPECCION   +" "+TABLE_EVALUACION_TYPECOL_IDTIPOINSPECCION+", "+
                     TABLE_EVALUACION_COL_IDVISITA           +" "+TABLE_EVALUACION_TYPECOL_IDVISITA+" NOT NULL"+
-            ")";
+                    ")";
 
 
     public static final String CREATE_TABLE_VISITA=
@@ -303,7 +303,7 @@ public class Utilities {
                     TABLE_VISITA_COL_CONTACTOPERSONALIZADO  +" "+TABLE_VISITA_TYPECOL_CONTACTOPERSONALIZADO+", "+
                     TABLE_VISITA_COL_IDCONTACTO    +" "+TABLE_VISITA_TYPECOL_IDCONTACTO+","+
                     TABLE_VISITA_COL_COMENTARIO    +" "+TABLE_VISITA_TYPECOL_COMENTARIO+
-            ")";
+                    ")";
 
     /*** agregar
      * area - float     <-----------table Fundovariedad
@@ -314,7 +314,7 @@ public class Utilities {
             " CREATE TABLE IF NOT EXISTS "+TABLE_TIPOINSPECCION+" (" +
                     TABLE_TIPOINSPECCION_COL_ID     +" "+TABLE_TIPOINSPECCION_TYPECOL_ID+" PRIMARY KEY," +
                     TABLE_TIPOINSPECCION_COL_NAME   +" "+TABLE_TIPOINSPECCION_TYPECOL_NAME+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_CRITERIO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_CRITERIO+" (" +
@@ -323,14 +323,14 @@ public class Utilities {
                     TABLE_CRITERIO_COL_TIPO             +" "+TABLE_CRITERIO_TYPECOL_TIPO+","+
                     TABLE_CRITERIO_COL_MAGNITUD         +" "+TABLE_CRITERIO_TYPECOL_MAGNITUD+","+
                     TABLE_CRITERIO_COL_IDTIPOINSPECCION +" "+TABLE_CRITERIO_TYPECOL_IDTIPOINSPECCION+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_CONFIGURACIONCRITERIO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_CONFIGURACIONCRITERIO+" (" +
                     TABLE_CONFIGURACIONCRITERIO_COL_ID                  +" "+TABLE_CONFIGURACIONCRITERIO_TYPECOL_ID+" PRIMARY KEY," +
                     TABLE_CONFIGURACIONCRITERIO_COL_IDFUNDOVARIEDAD     +" "+TABLE_CONFIGURACIONCRITERIO_TYPECOL_IDFUNDOVARIEDAD+","+
                     TABLE_CONFIGURACIONCRITERIO_COL_IDCRITERIO          +" "+TABLE_CONFIGURACIONCRITERIO_TYPECOL_IDCRITERIO+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_FUNDOVARIEDAD =
             " CREATE TABLE IF NOT EXISTS "+TABLE_FUNDOVARIEDAD+" (" +
@@ -338,20 +338,20 @@ public class Utilities {
                     TABLE_FUNDOVARIEDAD_COL_IDFUNDO   +" "+TABLE_FUNDOVARIEDAD_TYPECOL_IDFUNDO+", "+
                     TABLE_FUNDOVARIEDAD_COL_AREA      +" "+TABLE_FUNDOVARIEDAD_TYPECOL_AREA+", "+
                     TABLE_FUNDOVARIEDAD_COL_IDVARIEDAD+" "+TABLE_FUNDOVARIEDAD_TYPECOL_IDVARIEDAD+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_VARIEDAD =
             " CREATE TABLE IF NOT EXISTS "+TABLE_VARIEDAD+" (" +
                     TABLE_VARIEDAD_COL_ID        +" "+TABLE_VARIEDAD_TYPECOL_ID+" PRIMARY KEY," +
                     TABLE_VARIEDAD_COL_NAME      +" "+TABLE_VARIEDAD_TYPECOL_NAME+","+
                     TABLE_VARIEDAD_COL_IDCULTIVO +" "+TABLE_VARIEDAD_TYPECOL_IDCULTIVO+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_CULTIVO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_CULTIVO+" (" +
                     TABLE_CULTIVO_COL_ID        +" "+TABLE_CULTIVO_TYPECOL_ID+" PRIMARY KEY," +
                     TABLE_CULTIVO_COL_NAME      +" "+TABLE_CULTIVO_TYPECOL_NAME+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_FUNDO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_FUNDO+" (" +
@@ -359,14 +359,14 @@ public class Utilities {
                     TABLE_FUNDO_COL_NAME      +" "+TABLE_FUNDO_TYPECOL_NAME+","+
                     TABLE_FUNDO_COL_SISTEMARIEGO+" "+TABLE_FUNDO_TYPECOL_SISTEMARIEGO+", "+
                     TABLE_FUNDO_COL_IDEMPRESA +" "+TABLE_FUNDO_TYPECOL_IDEMPRESA+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_EMPRESA =
             " CREATE TABLE IF NOT EXISTS "+TABLE_EMPRESA+" (" +
                     TABLE_EMPRESA_COL_ID        +" "+TABLE_EMPRESA_TYPECOL_ID+" PRIMARY KEY," +
                     TABLE_EMPRESA_COL_NAME      +" "+TABLE_EMPRESA_TYPECOL_NAME+", "+
                     TABLE_EMPRESA_COL_IDZONA +" "+TABLE_EMPRESA_TYPECOL_IDZONA+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_USUARIO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_USUARIO+" (" +
@@ -376,7 +376,7 @@ public class Utilities {
                     TABLE_USUARIO_COL_NAME      +" "+TABLE_USUARIO_TYPECOL_NAME+","+
                     TABLE_USUARIO_COL_LASTNAME  +" "+TABLE_USUARIO_TYPECOL_LASTNAME+", "+
                     TABLE_USUARIO_COL_CODIGO    +" "+TABLE_USUARIO_TYPECOL_CODIGO+
-            ")";
+                    ")";
 
     public static final String CREATE_TABLE_CONTACTO =
             " CREATE TABLE IF NOT EXISTS "+TABLE_CONTACTO+" (" +

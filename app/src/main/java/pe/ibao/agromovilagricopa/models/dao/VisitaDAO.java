@@ -17,7 +17,6 @@ import pe.ibao.agromovilagricopa.models.vo.entitiesDB.CultivoVO;
 import pe.ibao.agromovilagricopa.models.vo.entitiesDB.EmpresaVO;
 import pe.ibao.agromovilagricopa.models.vo.entitiesDB.FundoVO;
 import pe.ibao.agromovilagricopa.models.vo.entitiesInternal.VisitaVO;
-import pe.ibao.agromovilagricopa.utilities.Utilities;
 
 import static pe.ibao.agromovilagricopa.ConexionSQLiteHelper.VERSION_DB;
 import static pe.ibao.agromovilagricopa.utilities.Utilities.DATABASE_NAME;
@@ -43,6 +42,7 @@ import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_VISITA_COL_LAT
 import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_VISITA_COL_LATITUDINI;
 import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_VISITA_COL_LONGITUDFIN;
 import static pe.ibao.agromovilagricopa.utilities.Utilities.TABLE_VISITA_COL_LONGITUDINI;
+
 
 public class VisitaDAO {
 
@@ -74,12 +74,12 @@ public class VisitaDAO {
                             "V."+TABLE_VISITA_COL_LATITUDFIN+", "+//11
                             "V."+TABLE_VISITA_COL_LONGITUDFIN+", "+//12+
                             "V."+TABLE_VISITA_COL_COMENTARIO+//13
-                        " FROM "+
+                            " FROM "+
                             TABLE_VISITA+" as V "+
-                        " WHERE "+
+                            " WHERE "+
                             TABLE_VISITA_COL_EDITING+"="+"0"
                     ,null);
-           // Toast.makeText(ctx,"contando visitas"+cursor.getCount(),Toast.LENGTH_LONG).show();
+            // Toast.makeText(ctx,"contando visitas"+cursor.getCount(),Toast.LENGTH_LONG).show();
             while (cursor.moveToNext() && cursor.getCount()>0){
                 VisitaVO temp;
                 Log.d(TAG,"hay primero");
@@ -115,7 +115,7 @@ public class VisitaDAO {
 
                 if(!temp.isStatusContactoPersonalizado()){
                     temp.setContactoPersonalizado(new ContactoDAO(ctx).consultarContactoByid(temp.getIdContacto()).getName());
-                 //   Toast.makeText(ctx,temp.getContactoPersonalizado(),Toast.LENGTH_LONG).show();
+                    //   Toast.makeText(ctx,temp.getContactoPersonalizado(),Toast.LENGTH_LONG).show();
                 }
 
                 if(temp.getIdContacto()>0){//verifica si devuelve un id fundo
@@ -136,7 +136,7 @@ public class VisitaDAO {
                     String nameFundo = f.getName();
                     temp.setNameFundo(nameFundo);
                     //obteniedno datos d e empresa
-                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(temp.getIdFundo());
+                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(f.getIdEmpresa());
 
                     temp.setIdEmpresa(empresaVO.getId());
                     temp.setNameEmpresa(empresaVO.getName());
@@ -157,14 +157,14 @@ public class VisitaDAO {
                 Cursor cursor2 = db2.rawQuery(
                         " SELECT " +
                                 "FV."+TABLE_FUNDOVARIEDAD_COL_AREA+
-                            " FROM "+
+                                " FROM "+
                                 TABLE_FUNDOVARIEDAD+" AS FV"+
-                            " WHERE "+
+                                " WHERE "+
                                 "FV."+TABLE_FUNDOVARIEDAD_COL_IDVARIEDAD+"="+temp.getIdVariedad()+
                                 " AND "+
                                 "FV."+TABLE_FUNDOVARIEDAD_COL_IDFUNDO+"="+temp.getIdFundo()
                         ,null
-                        );
+                );
                 if(cursor2.getCount()>0){
                     cursor2.moveToFirst();
                     temp.setAreaFundoVariedad(cursor2.getString(0)==null?"0":cursor2.getString(0));
@@ -284,7 +284,7 @@ public class VisitaDAO {
                     String nameFundo = f.getName();
                     temp.setNameFundo(nameFundo);
                     //obteniedno datos d e empresa
-                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(temp.getIdFundo());
+                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(f.getIdEmpresa());
 
                     temp.setIdEmpresa(empresaVO.getId());
                     temp.setNameEmpresa(empresaVO.getName());
@@ -374,85 +374,84 @@ public class VisitaDAO {
                             "V."+TABLE_VISITA_COL_LATITUDFIN+", "+//11
                             "V."+TABLE_VISITA_COL_LONGITUDFIN+", "+//12+
                             "V."+TABLE_VISITA_COL_COMENTARIO+//13
-                        " FROM "+
+                            " FROM "+
                             TABLE_VISITA+" as V "+
 
-                        " WHERE "+
+                            " WHERE "+
                             TABLE_VISITA_COL_EDITING+"="+"1"
                     ,null);
 
             if(cursor.getCount()>0){
-                        cursor.moveToFirst() ;
-                        Log.d(TAG,"hay primero");
-                        temp = new VisitaVO();
-                        Log.d(TAG,"0");
-                        temp.setId(cursor.getInt(0));
-                        Log.d(TAG,"1");
-                        temp.setFechaHoraIni(cursor.getString(1));
-                        Log.d(TAG,"2");
-                        temp.setEditing(cursor.getInt(2)>0);
-                        Log.d(TAG,"3");
-                        temp.setLatIni(cursor.getString(3));
-                        Log.d(TAG,"4");
-                        temp.setLonIni(cursor.getString(4));
-                        Log.d(TAG,"5");
-                        temp.setIdFundo(cursor.getInt(5));
-                        Log.d(TAG,"6");
-                        temp.setIdVariedad(cursor.getInt(6));
-                        Log.d(TAG,"7");
-                        temp.setIdContacto(cursor.getInt(7));
-                        Log.d(TAG,"8");
-                        temp.setStatusContactoPersonalizado(cursor.getInt(8)>0);
-                        Log.d(TAG,"9");
-                        temp.setContactoPersonalizado(cursor.getString(9));
-                        Log.d(TAG,"10");
-                        temp.setFechaHoraFin(cursor.getString(10));
-                        Log.d(TAG,"11");
-                        temp.setLatFin(cursor.getString(11));
-                        Log.d(TAG,"12");
-                        temp.setLonFin(cursor.getString(12));
+                cursor.moveToFirst() ;
+                Log.d(TAG,"hay primero");
+                temp = new VisitaVO();
+                Log.d(TAG,"0");
+                temp.setId(cursor.getInt(0));
+                Log.d(TAG,"1");
+                temp.setFechaHoraIni(cursor.getString(1));
+                Log.d(TAG,"2");
+                temp.setEditing(cursor.getInt(2)>0);
+                Log.d(TAG,"3");
+                temp.setLatIni(cursor.getString(3));
+                Log.d(TAG,"4");
+                temp.setLonIni(cursor.getString(4));
+                Log.d(TAG,"5");
+                temp.setIdFundo(cursor.getInt(5));
+                Log.d(TAG,"6");
+                temp.setIdVariedad(cursor.getInt(6));
+                Log.d(TAG,"7");
+                temp.setIdContacto(cursor.getInt(7));
+                Log.d(TAG,"8");
+                temp.setStatusContactoPersonalizado(cursor.getInt(8)>0);
+                Log.d(TAG,"9");
+                temp.setContactoPersonalizado(cursor.getString(9));
+                Log.d(TAG,"10");
+                temp.setFechaHoraFin(cursor.getString(10));
+                Log.d(TAG,"11");
+                temp.setLatFin(cursor.getString(11));
+                Log.d(TAG,"12");
+                temp.setLonFin(cursor.getString(12));
                 Log.d(TAG,"13");
                 temp.setComentario(cursor.getString(13));
                 if(temp.getIdContacto()>0){//verifica si devuelve un id fundo
 
-                            //obteniedo datos d e fundo
-                            ContactoDAO contactoDAO = new ContactoDAO(ctx);
-                            ContactoVO contactoVo =  contactoDAO.consultarContactoByid(temp.getIdContacto());
-                            String nameContacto = contactoVo.getName();
-                            temp.setNameFundo(nameContacto);
-                            //obteniedno datos d e empresa
-                        }
+                    //obteniedo datos d e fundo
+                    ContactoDAO contactoDAO = new ContactoDAO(ctx);
+                    ContactoVO contactoVo =  contactoDAO.consultarContactoByid(temp.getIdContacto());
+                    String nameContacto = contactoVo.getName();
+                    temp.setNameFundo(nameContacto);
+                    //obteniedno datos d e empresa
+                }
 
-                        if(temp.getIdFundo()>0){//verifica si devuelve un id fundo
-                            Log.d(TAG,"getEditing -1 "+temp.getIdFundo());
-                            //obteniedo datos d e fundo
-                            FundoDAO fundoDAO = new FundoDAO(ctx);
-                            FundoVO f =  fundoDAO.consultarById(temp.getIdFundo());
-                            Log.d(TAG,"getEditing -2 "+temp.getIdFundo());
-                            String nameFundo = f.getName();
-                            Log.d(TAG,"getEditing -3 "+temp.getIdFundo());
-                            temp.setNameFundo(nameFundo);
-                            Log.d(TAG,"getEditing -4 "+temp.getIdFundo());
-                           //obteniedno datos d e empresa
+                if(temp.getIdFundo()>0){//verifica si devuelve un id fundo
+                    Log.d(TAG,"getEditing -1 "+temp.getIdFundo());
+                    //obteniedo datos d e fundo
+                    FundoDAO fundoDAO = new FundoDAO(ctx);
+                    FundoVO f =  fundoDAO.consultarById(temp.getIdFundo());
+                    String nameFundo = f.getName();
+                    Log.d(TAG,"getEditing -3 "+temp.getNameFundo());
+                    temp.setNameFundo(nameFundo);
+                    //obteniedno datos d e empresa
 
-                            EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(temp.getIdFundo());
+                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(f.getIdEmpresa());
 
-                            temp.setIdEmpresa(empresaVO.getId());
-                            temp.setNameEmpresa(empresaVO.getName());
-
-                        }
-                        if(temp.getIdVariedad()>0){
-                            //obteniendo datos  de cultivo
-                            CultivoDAO cultivoDAO = new CultivoDAO(ctx);
-                            CultivoVO cultivoVO = cultivoDAO.consultarCultivoByIdVariedad(temp.getIdVariedad());
-                            temp.setNameCultivo(cultivoVO.getName());
-                            temp.setIdCultivo(cultivoVO.getId());
-                            //obteiedno datos de  variedad
-                            VariedadDAO variedadDAO = new VariedadDAO(ctx);
-                            temp.setNameVariedad(variedadDAO.consultarVariedadById(temp.getIdVariedad()).getName());
-                        }
-                    }
-                cursor.close();
+                    temp.setIdEmpresa(empresaVO.getId());
+                    temp.setNameEmpresa(empresaVO.getName());
+                    Log.d(TAG,"getEditing -1 "+temp.getIdEmpresa());
+                    Log.d(TAG,"getEditing -1 "+temp.getNameEmpresa());
+                }
+                if(temp.getIdVariedad()>0){
+                    //obteniendo datos  de cultivo
+                    CultivoDAO cultivoDAO = new CultivoDAO(ctx);
+                    CultivoVO cultivoVO = cultivoDAO.consultarCultivoByIdVariedad(temp.getIdVariedad());
+                    temp.setNameCultivo(cultivoVO.getName());
+                    temp.setIdCultivo(cultivoVO.getId());
+                    //obteiedno datos de  variedad
+                    VariedadDAO variedadDAO = new VariedadDAO(ctx);
+                    temp.setNameVariedad(variedadDAO.consultarVariedadById(temp.getIdVariedad()).getName());
+                }
+            }
+            cursor.close();
 
         }catch (Exception e){
             Log.d(TAG,"1getEditing "+e.toString());
@@ -516,11 +515,11 @@ public class VisitaDAO {
         values.put(TABLE_VISITA_COL_LONGITUDINI,lon);
         */
         String sql = "UPDATE "+
-                        TABLE_VISITA+
-                     " SET "+
-                        TABLE_VISITA_COL_FECHAHORAFIN+" = datetime('now','localtime')  "+
-                     " WHERE " +
-                        TABLE_VISITA_COL_ID+"="+String.valueOf(id);
+                TABLE_VISITA+
+                " SET "+
+                TABLE_VISITA_COL_FECHAHORAFIN+" = datetime('now','localtime')  "+
+                " WHERE " +
+                TABLE_VISITA_COL_ID+"="+String.valueOf(id);
         db.execSQL(sql);
         /*int res = db.update(TABLE_VISITA,values,TABLE_VISITA_COL_ID+"=?",parametros);
         if(res>0){
@@ -591,18 +590,18 @@ public class VisitaDAO {
                 ConexionSQLiteHelper c = new ConexionSQLiteHelper(ctx,DATABASE_NAME, null, VERSION_DB);
                 SQLiteDatabase db = c.getWritableDatabase();
                 ContentValues values = new ContentValues();
-                values.put(Utilities.TABLE_VISITA_COL_EDITING, true);
-                id = db.insert(Utilities.TABLE_VISITA, Utilities.TABLE_VISITA_COL_ID, values);
+                values.put(TABLE_VISITA_COL_EDITING, true);
+                id = db.insert(TABLE_VISITA,TABLE_VISITA_COL_ID, values);
                 c.close();
                 resVisita = getEditing();
                 Log.d(TAG,"--->"+resVisita.getFechaHoraIni());
-               // Toast.makeText(ctx, "Nueva Visita Registrada:" + id, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(ctx, "Nueva Visita Registrada:" + id, Toast.LENGTH_SHORT).show();
             }
             catch (Exception e){
                 Log.d(TAG,"Intentar nuevo"+e.toString());
             }
         } else{
-           // Toast.makeText(ctx,"Abriendo Visita "/*+resVisita.getId()*/,Toast.LENGTH_SHORT).show();
+            // Toast.makeText(ctx,"Abriendo Visita "/*+resVisita.getId()*/,Toast.LENGTH_SHORT).show();
         }
         return resVisita;
     }
@@ -746,17 +745,17 @@ public class VisitaDAO {
                     //obteniedo datos d e fundo
                     FundoDAO fundoDAO = new FundoDAO(ctx);
                     FundoVO f =  fundoDAO.consultarById(temp.getIdFundo());
-                    Log.d(TAG,"getEditing -2 "+temp.getIdFundo());
                     String nameFundo = f.getName();
-                    Log.d(TAG,"getEditing -3 "+temp.getIdFundo());
                     temp.setNameFundo(nameFundo);
-                    Log.d(TAG,"getEditing -4 "+temp.getIdFundo());
+                    Log.d(TAG,"getEditing -2 "+temp.getNameFundo());
                     //obteniedno datos d e empresa
 
-                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(temp.getIdFundo());
+                    EmpresaVO empresaVO = new EmpresaDAO(ctx).consultarEmpresaByid(f.getIdEmpresa());
 
                     temp.setIdEmpresa(empresaVO.getId());
+                    Log.d(TAG,"getEditing -3 "+temp.getIdEmpresa());
                     temp.setNameEmpresa(empresaVO.getName());
+                    Log.d(TAG,"getEditing -4 "+temp.getNameEmpresa());
 
                 }
                 if(temp.getIdVariedad()>0){
